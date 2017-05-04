@@ -21,7 +21,7 @@
 }
 - (IBAction)startDownload:(id)sender {
     MCModel * model = [[MCModel alloc]init];
-    model.url = @"http://aikandy.org/倒霉熊106.mp4?fid=5iER8aHWGzzZ6G4rvu4nlKb0w78AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&mid=666&threshold=150&tid=E51DD7BC01A9282BA77EC1C3BEB3CBF7&srcid=120&verno=1";
+    model.url = @"http://m2.pc6.com/xxj/jihuang.dmg";
     model.desPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"10.zip"];
     model.tempPath =[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"9.zip"];
     [MCDownloadManager downloadManager].delegate = self;
