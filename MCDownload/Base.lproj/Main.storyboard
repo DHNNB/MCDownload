@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="CeD-Hq-5dy">
+                                <rect key="frame" x="8" y="318.5" width="359" height="31"/>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jrJ-fP-nlG">
+                                <rect key="frame" x="150" y="269" width="75" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="DGV-aA-G7b"/>
+                                </constraints>
+                                <state key="normal" title="开始"/>
+                                <connections>
+                                    <action selector="startDownload:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qr5-J7-93x"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YtT-pC-N0y">
+                                <rect key="frame" x="166.5" y="378.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jrJ-fP-nlG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2SS-W3-8lY"/>
+                            <constraint firstItem="YtT-pC-N0y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HFz-0r-0i0"/>
+                            <constraint firstAttribute="trailing" secondItem="CeD-Hq-5dy" secondAttribute="trailing" constant="10" id="Px3-PO-kGD"/>
+                            <constraint firstItem="CeD-Hq-5dy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QqB-9i-1FA"/>
+                            <constraint firstItem="CeD-Hq-5dy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Svv-CO-Lu3"/>
+                            <constraint firstItem="CeD-Hq-5dy" firstAttribute="top" secondItem="jrJ-fP-nlG" secondAttribute="bottom" constant="20" id="XEV-W5-ncd"/>
+                            <constraint firstItem="YtT-pC-N0y" firstAttribute="top" secondItem="CeD-Hq-5dy" secondAttribute="bottom" constant="30" id="gvH-AN-cFb"/>
+                            <constraint firstItem="CeD-Hq-5dy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="p7e-gr-l6Z"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pressLabel" destination="YtT-pC-N0y" id="baW-OH-C5W"/>
+                        <outlet property="slider" destination="CeD-Hq-5dy" id="qru-il-aBf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="123.68815592203899"/>
+        </scene>
+    </scenes>
+</document>
