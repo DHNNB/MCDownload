@@ -26,7 +26,7 @@
 - (void)creatData{
     for (int i = 1 ; i <= 20; i++) {
         MCModel * model = [[MCModel alloc]init];
-        model.url = @"http://m2.pc6.com/xxj/jihuang.dmg";
+        model.url = @"http://hc.yinyuetai.com/uploads/videos/common/0F5F0159A53C33E687C46743839F94BE.mp4";
         model.desPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%d.zip",i]];
         model.modelId = i;
         model.tempPath =[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%d_des.zip",i]];
@@ -48,17 +48,17 @@
     cell.model = model;
     MCOperation * op = [[MCDownloadManager downloadManager] getOperationWithModel:model];
     if (op) {
-        if (op.donwloadState == MCDownloadPasue || op.donwloadState == MCDownloading) {
+        if (op.donwloadState == MCDownloadWaiting || op.donwloadState == MCDownloading) {
             cell.donwloadBtn.selected = YES;
         }else{
             cell.donwloadBtn.selected = NO;
         }
         cell.progressView.progress = op.progress;
-        cell.progressLabel.text = [NSString stringWithFormat:@"%.2f",op.progress];
+        cell.progressLabel.text = [NSString stringWithFormat:@"%.0f%%",op.progress * 100];
     }else{
         cell.donwloadBtn.selected = NO;
-      cell.progressView.progress = 0;
-        cell.progressLabel.text = @"0";
+       cell.progressView.progress = 0;
+        cell.progressLabel.text = @"0%";
     }
     return cell;
 }

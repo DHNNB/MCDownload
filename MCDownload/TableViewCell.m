@@ -26,7 +26,7 @@
     MCOperation * op = notification.object;
     if(op.model.modelId == self.model.modelId){
         self.progressView.progress = op.progress;
-        self.progressLabel.text = [NSString stringWithFormat:@"%.2f",op.progress];
+        self.progressLabel.text = [NSString stringWithFormat:@"%.0f%%",op.progress * 100];
     }
 }
 - (void)operationStateChange:(NSNotification * )notification
