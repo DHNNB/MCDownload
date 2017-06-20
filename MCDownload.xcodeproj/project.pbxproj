@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8C2AB521EF8EE0B0031DEDD /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C2AB501EF8EE0B0031DEDD /* TableViewCell.m */; };
+		D8C2AB531EF8EE0B0031DEDD /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8C2AB511EF8EE0B0031DEDD /* TableViewCell.xib */; };
 		D8D0E8D91EBAF69100FB3426 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D0E8D81EBAF69100FB3426 /* main.m */; };
 		D8D0E8DC1EBAF69100FB3426 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D0E8DB1EBAF69100FB3426 /* AppDelegate.m */; };
 		D8D0E8DF1EBAF69100FB3426 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D0E8DE1EBAF69100FB3426 /* ViewController.m */; };
@@ -19,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D8C2AB4F1EF8EE0B0031DEDD /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		D8C2AB501EF8EE0B0031DEDD /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		D8C2AB511EF8EE0B0031DEDD /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		D8D0E8D41EBAF69100FB3426 /* MCDownload.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCDownload.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D0E8D81EBAF69100FB3426 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D8D0E8DA1EBAF69100FB3426 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -72,6 +77,9 @@
 				D8D0E8DB1EBAF69100FB3426 /* AppDelegate.m */,
 				D8D0E8DD1EBAF69100FB3426 /* ViewController.h */,
 				D8D0E8DE1EBAF69100FB3426 /* ViewController.m */,
+				D8C2AB4F1EF8EE0B0031DEDD /* TableViewCell.h */,
+				D8C2AB501EF8EE0B0031DEDD /* TableViewCell.m */,
+				D8C2AB511EF8EE0B0031DEDD /* TableViewCell.xib */,
 				D8D0E8E01EBAF69100FB3426 /* Main.storyboard */,
 				D8D0E8E31EBAF69100FB3426 /* Assets.xcassets */,
 				D8D0E8E51EBAF69100FB3426 /* LaunchScreen.storyboard */,
@@ -162,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8D0E8E71EBAF69100FB3426 /* LaunchScreen.storyboard in Resources */,
+				D8C2AB531EF8EE0B0031DEDD /* TableViewCell.xib in Resources */,
 				D8D0E8E41EBAF69100FB3426 /* Assets.xcassets in Resources */,
 				D8D0E8E21EBAF69100FB3426 /* Main.storyboard in Resources */,
 			);
@@ -174,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8C2AB521EF8EE0B0031DEDD /* TableViewCell.m in Sources */,
 				D8D0E8DF1EBAF69100FB3426 /* ViewController.m in Sources */,
 				D8D0E8F11EBAF71300FB3426 /* MCOperation.m in Sources */,
 				D8D0E8F41EBAF9D500FB3426 /* MCDownloadManager.m in Sources */,

@@ -10,23 +10,12 @@
 #import "MCModel.h"
 #import "MCOperation.h"
 #import <UIKit/UIKit.h>
-@protocol MCMonitoringDelegate <NSObject>
-/**
- 下载进度
- 
- @param progress 进度
- @param operation -
- */
-- (void)donwloadProgress:(CGFloat)progress withOperation:(MCOperation * )operation;
-@optional
 
-@end
 @interface MCDownloadManager : NSObject
 
-/**
- 监控下载状态
- */
-@property (weak, nonatomic) id<MCMonitoringDelegate> delegate;
+UIKIT_EXTERN NSString *const MCOperationProgressChange;
+UIKIT_EXTERN NSString *const MCOperationStateChange;
+
 /**
  同事下载个数 默认 1个
  */

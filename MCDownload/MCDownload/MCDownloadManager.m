@@ -8,10 +8,17 @@
 
 #import "MCDownloadManager.h"
 #import "MCOperation.h"
-@interface MCDownloadManager()
+@interface MCDownloadManager() <MCDownloadDelegate>
 @property (retain, nonatomic) NSOperationQueue * downloadQueue;
 @end
 @implementation MCDownloadManager
+
+//下载管理 进度改变
+NSString * const MCOperationProgressChange = @"OperationProgressChange";
+//状态改变
+NSString * const MCOperationStateChange = @"OperationStateChange";
+
+
 + (MCDownloadManager * )downloadManager
 {
     static dispatch_once_t onceToken;
@@ -29,21 +36,56 @@
     }
     return self;
 }
-- (void)donwloadProgress:(CGFloat)progress withOperation:(MCOperation * )operation
-{
-    if (_delegate && [_delegate respondsToSelector:@selector(donwloadProgress:withOperation:)]) {
-        [_delegate donwloadProgress:progress withOperation:operation];
-    }
-}
 - (void)addDonwloadWithModel:(MCModel *)model
 {
+    for (MCOperation  * op in self.downloadQueue.operations) { //在下载 暂停
+        if (op.model.modelId == model.modelId) {
+            [op pauseDownload];
+            return;
+        }
+    }
     // again 为yes 不断点续传
-    MCOperation * operation = [[MCOperation  alloc]initWithModel:model delegate:self isAgain:YES isCopy:NO];
+    MCOperation * operation = [[MCOperation  alloc]initWithModel:model delegate:self isAgain:NO isCopy:NO];
     [self.downloadQueue addOperation:operation];
+}
+#define mark - MCDownloadDelegate
+- (void)donwloadProgress:(CGFloat)progress withOperation:(MCOperation * )operation
+{
+    [[NSNotificationCenter defaultCenter]postNotificationName:MCOperationProgressChange object:operation];
+}
+- (void)downloadSuccess:(MCOperation * )operation withDesPath:(NSString * )desPath
+{
+    [[NSNotificationCenter defaultCenter]postNotificationName:MCOperationStateChange object:operation];
+}
+- (void)downloadFailMsg:(NSString *)msg withOperation:(MCOperation * )operation
+{
+    [[NSNotificationCenter defaultCenter]postNotificationName:MCOperationStateChange object:operation];
+}
+- (void)downloadPause:(MCOperation * )operation
+{
+    [[NSNotificationCenter defaultCenter]postNotificationName:MCOperationStateChange object:operation];
+}
+- (void)downloadStart:(MCOperation * )operation
+{
+    [[NSNotificationCenter defaultCenter]postNotificationName:MCOperationStateChange object:operation];
+}
+- (void)downloadCancel:(MCOperation * )operation
+{
+    [[NSNotificationCenter defaultCenter]postNotificationName:MCOperationStateChange object:operation];
+}
+- (void)downloadWaiting:(MCOperation * )operation
+{
+    [[NSNotificationCenter defaultCenter]postNotificationName:MCOperationStateChange object:operation];
+}
+
+- (void)setMaxCount:(NSInteger)maxCount
+{
+    _maxCount = maxCount;
+    self.downloadQueue.maxConcurrentOperationCount = maxCount;
 }
 - (NSOperationQueue * )downloadQueue
 {
-    if (!_downloadQueue) {
+    if (!_downloadQueue){
         _downloadQueue = [[NSOperationQueue alloc]init];
         _downloadQueue.maxConcurrentOperationCount = self.maxCount;
     }
