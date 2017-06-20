@@ -44,7 +44,22 @@
 {
     TableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"downloadCell"];
     cell.nameLabel.text = [NSString stringWithFormat:@"下载%ld",indexPath.row];
-    cell.model = self.dataArray[indexPath.row];
+    MCModel * model = self.dataArray[indexPath.row];
+    cell.model = model;
+    MCOperation * op = [[MCDownloadManager downloadManager] getOperationWithModel:model];
+    if (op) {
+        if (op.donwloadState == MCDownloadPasue || op.donwloadState == MCDownloading) {
+            cell.donwloadBtn.selected = YES;
+        }else{
+            cell.donwloadBtn.selected = NO;
+        }
+        cell.progressView.progress = op.progress;
+        cell.progressLabel.text = [NSString stringWithFormat:@"%.2f",op.progress];
+    }else{
+        cell.donwloadBtn.selected = NO;
+      cell.progressView.progress = 0;
+        cell.progressLabel.text = @"0";
+    }
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

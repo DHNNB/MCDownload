@@ -38,15 +38,20 @@ NSString * const MCOperationStateChange = @"OperationStateChange";
 }
 - (void)addDonwloadWithModel:(MCModel *)model
 {
-    for (MCOperation  * op in self.downloadQueue.operations) { //在下载 暂停
-        if (op.model.modelId == model.modelId) {
-            [op pauseDownload];
-            return;
-        }
+    MCOperation * op = [self getOperationWithModel:model];
+    if (op) {
+        [op pauseDownload];
+        return;
     }
     // again 为yes 不断点续传
     MCOperation * operation = [[MCOperation  alloc]initWithModel:model delegate:self isAgain:NO isCopy:NO];
     [self.downloadQueue addOperation:operation];
+}
+- (MCOperation * )getOperationWithModel:(MCModel *)model
+{
+    NSPredicate * predicate = [NSPredicate predicateWithFormat:@"model.modelId = %d",model.modelId];
+    NSArray * array = [self.downloadQueue.operations filteredArrayUsingPredicate:predicate];
+    return array.firstObject;
 }
 #define mark - MCDownloadDelegate
 - (void)donwloadProgress:(CGFloat)progress withOperation:(MCOperation * )operation

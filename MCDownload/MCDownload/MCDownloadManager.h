@@ -34,4 +34,12 @@ UIKIT_EXTERN NSString *const MCOperationStateChange;
  @param model 自己的model
  */
 - (void)addDonwloadWithModel:(MCModel *)model;
+
+/**
+ 查询在下载的model
+
+ @param model  -
+ @return -
+ */
+- (MCOperation * )getOperationWithModel:(MCModel *)model;
 @end
