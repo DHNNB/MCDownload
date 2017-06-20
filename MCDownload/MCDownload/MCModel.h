@@ -29,4 +29,9 @@
  */
 @property (copy, nonatomic) NSString * tempPath;
 
+/**
+ 下载进度
+ */
+@property (assign, nonatomic) float progress;
+
 @end

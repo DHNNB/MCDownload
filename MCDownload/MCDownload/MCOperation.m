@@ -140,6 +140,7 @@
     self.currentLength += data.length;
     // 打印下载进度
     double progress = (double)(self.currentLength+self.beginLength) / (self.totalLength+self.beginLength);
+    self.model.progress = progress;
     self.progress = progress;
     //    NSLog(@"下载进度%.2f",progress);
     [self.stream write:data.bytes maxLength:data.length];

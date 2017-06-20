@@ -57,8 +57,8 @@
         cell.progressLabel.text = [NSString stringWithFormat:@"%.0f%%",op.progress * 100];
     }else{
         cell.donwloadBtn.selected = NO;
-       cell.progressView.progress = 0;
-        cell.progressLabel.text = @"0%";
+        cell.progressView.progress = model.progress;
+        cell.progressLabel.text = [NSString stringWithFormat:@"%.0f%%",model.progress * 100];
     }
     return cell;
 }
