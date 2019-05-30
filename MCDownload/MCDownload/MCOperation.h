@@ -120,25 +120,7 @@ typedef NS_ENUM(NSInteger,MCDownloadState) {
 @property (assign, nonatomic) BOOL isCopy;
 
 /**
- 请求
- */
-@property (retain, nonatomic) NSURLSession * session;
-@property (retain, nonatomic) NSURLSessionDataTask * downloadTask;
-
-/**
- 控制 下载状态
- */
-@property (assign, nonatomic) BOOL isCancel;
-@property (assign, nonatomic, getter = isExecuting) BOOL executing;
-@property (assign, nonatomic, getter = isFinished) BOOL finished;
-
-/**
- 文件写入
- */
-@property (retain, nonatomic) NSOutputStream * stream;
-
-/**
- 创新下载线程
+ 创新下载
  
  @param model -
  @param delegate 代理

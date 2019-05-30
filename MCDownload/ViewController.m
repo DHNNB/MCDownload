@@ -26,7 +26,7 @@
 - (void)creatData{
     for (int i = 1 ; i <= 20; i++) {
         MCModel * model = [[MCModel alloc]init];
-        model.url = @"http://hc.yinyuetai.com/uploads/videos/common/0F5F0159A53C33E687C46743839F94BE.mp4";
+        model.url = @"http://vd.yinyuetai.com/hd.yinyuetai.com/uploads/videos/common/E18B01693C177FDDBE82B857755FA7DE.mp4";
         model.desPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%d.zip",i]];
         model.modelId = i;
         model.tempPath =[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%d_des.zip",i]];
